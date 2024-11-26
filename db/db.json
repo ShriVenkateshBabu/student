@@ -1,0 +1,29 @@
+{
+  "students": [
+    {
+      "name": null,
+      "id": null,
+      "dept": null
+    },
+    {
+      "id": "",
+      "name": "gelo",
+      "dept": ""
+    },
+    {
+      "id": "",
+      "name": "gpay",
+      "dept": ""
+    },
+    {
+      "id": "",
+      "name": "googoe",
+      "dept": ""
+    },
+    {
+      "id": "",
+      "name": "googlr",
+      "dept": ""
+    }
+  ]
+}

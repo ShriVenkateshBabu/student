@@ -4,7 +4,8 @@ const Viewstudent = ({students}) => {
 
   return (
     <>
-     <div>
+     <main>
+     <div className='main-content'>
       
         <ul>
           {students.map((stu,index)=>(
@@ -15,6 +16,7 @@ const Viewstudent = ({students}) => {
         </ul>
     
       </div> 
+      </main>
     </>
   )
 }
