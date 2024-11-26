@@ -1,0 +1,82 @@
+*{
+    padding:0;
+    margin:0
+}
+header{
+    padding: 15px;
+    background-color: darkgrey;
+    margin-bottom: 10px;
+    place-content: center;
+    text-align: center;
+}
+footer{
+    text-align: center;
+    position: fixed;
+    bottom:0;
+    padding:15px;
+    background-color: darkgray;
+    width: 100%;
+}
+.allstudents{
+    text-align: right;
+    margin-right: 2cm;
+    margin-top: 1cm;
+    
+}
+.allstudents h2{
+    text-align: left;
+    font-weight: bolder;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+     'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.allstudents table{
+        width: 100%;
+        table-layout: fixed; 
+        border-collapse: collapse;
+}
+.allstudents th{
+   border-collapse: collapse;
+  width: 10.69cm; /* Divide the width equally among columns */
+  padding: 10px;
+  border: 2px solid #0c0c0c;
+  text-align: left;
+}
+.addstudent td{
+    border-collapse: collapse;
+    padding: 10px;
+    border: 2px solid #0b0a0a;
+    text-align: left;
+}
+.searchbox input{
+    padding:5px;
+    width:4.9cm;
+}
+input{
+    display: flex;
+}
+.addstudent input{
+padding:5px;
+width: 4.9cm;
+margin-bottom: 4px;
+}
+.addstudent button{
+    width: 5.3cm;
+}
+.SearchedValues table{
+    width: 100%;
+        table-layout: fixed; 
+        border-collapse: collapse;
+}
+.SearchedValues th{
+    border-collapse: collapse;
+   width: 10.69cm; /* Divide the width equally among columns */
+   padding: 10px;
+   border: 2px solid #0c0c0c;
+   text-align: left;
+ }
+ .SearchedValues td{
+     border-collapse: collapse;
+     padding: 10px;
+     border: 2px solid #0b0a0a;
+     text-align: left;
+ }

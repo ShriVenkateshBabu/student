@@ -1,29 +1,24 @@
 {
   "students": [
     {
-      "name": null,
-      "id": null,
-      "dept": null
+      "id": "1",
+      "name": "venkycs",
+      "dept": "cse"
     },
     {
-      "id": "",
-      "name": "gelo",
-      "dept": ""
+      "id": "1",
+      "name": "har",
+      "dept": "bme"
     },
     {
-      "id": "",
-      "name": "gpay",
-      "dept": ""
+      "id": "2",
+      "name": "SURYA",
+      "dept": "VSE"
     },
     {
-      "id": "",
-      "name": "googoe",
-      "dept": ""
-    },
-    {
-      "id": "",
-      "name": "googlr",
-      "dept": ""
+      "id": "0",
+      "name": "gqjhg",
+      "dept": "wb"
     }
   ]
 }

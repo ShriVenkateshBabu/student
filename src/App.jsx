@@ -5,6 +5,7 @@ import Header from './Header&Footer/Header';
 import Footer from './Header&Footer/Footer';
 import apirequest from './apirequest';
 import './index.css';
+import Searchdisplayitems from './components/Searchdisplayitems';
 
 const App = () => {
   const [stname, setName] = useState('');
@@ -67,17 +68,10 @@ const App = () => {
       {loading && <p>Loading...</p>}
       <main>
       <Search setsearch={setSearch} />
-      {search && (
-        <ul>
-          {students
-            .filter((student) => student.id === search)
-            .map((stu) => (
-              <li key={stu.id}>
-                stu id = {stu.id}, stu name = {stu.name}
-              </li>
-            ))}
-        </ul>
-      )}
+      <Searchdisplayitems
+      search ={search}
+      students={students}
+      />
       <Addstudent
         students={students}
         stid={stid}

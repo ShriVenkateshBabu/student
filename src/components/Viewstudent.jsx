@@ -4,18 +4,27 @@ const Viewstudent = ({students}) => {
 
   return (
     <>
-     <main>
-     <div className='main-content'>
-      
-        <ul>
-          {students.map((stu,index)=>(
-          <li key = {index}>
-          stu id = {stu.id}, stu name = {stu.name}, stu dept = {stu.dept}
-          </li>
-          ))}
-        </ul>
-    
-      </div> 
+      <main>
+        <div className='allstudents'>
+          <h2>STUDENT</h2>
+                <table>
+                  <thead>
+                  <tr>
+                      <th>ID</th>
+                      <th>NAME</th>
+                      <th>DEPARTMENT</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {students.map((stu,index)=>
+                  <tr key={index}>
+                    <td>{stu.id}</td>
+                    <td>{stu.name}</td>
+                    <td>{stu.dept}</td>
+                  </tr>)}
+                  </tbody>
+                </table>
+        </div>
       </main>
     </>
   )
