@@ -1,7 +1,10 @@
 import React from 'react'
 import Viewstudent from './Viewstudent'
+import DeleteallRecords from './DeleteallRecords'
 
-const Addstudent = ({stdept,stid,stname,students,setDept,setID,setname,handleclick,search}) => {
+const Addstudent = ({stdept,stid,stname,students,setDept,setID,setname,handleclick,search,setStudents
+  ,apiurl
+}) => {
     
     return (
     <>
@@ -29,7 +32,13 @@ const Addstudent = ({stdept,stid,stname,students,setDept,setID,setname,handlecli
         required
         onChange={(e) => setDept(e.target.value)}
       />
-      <button onClick={handleclick}>ADD TO STUDENT LIST</button>
+      <button onClick={handleclick}><b>ADD TO STUDENT LIST</b></button>
+      <DeleteallRecords
+      setstudents={setStudents}
+      students={students}
+      apiurl = {apiurl}
+
+      />
       <Viewstudent
       students={students}
       search ={search}

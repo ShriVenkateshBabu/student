@@ -7,6 +7,7 @@ import apirequest from './apirequest';
 import './index.css';
 import Searchdisplayitems from './components/Searchdisplayitems';
 
+
 const App = () => {
   const [stname, setName] = useState('');
   const [stid, setID] = useState('');
@@ -15,12 +16,12 @@ const App = () => {
   const [search, setSearch] = useState('');
   let [error, setError] = useState('');
   let [loading, setloading] = useState(false);
-
+  let apiurl = 'http://localhost:3500/students';
   useEffect(() => {
     async function fetchData() {
       try {
         setloading(true);
-        let response = await fetch('http://localhost:3500/students');
+        let response = await fetch(apiurl);
         if (!response.ok) {
           throw Error('API call not fetched');
         }
@@ -49,7 +50,7 @@ const App = () => {
       body: JSON.stringify(newStudent),
     };
 
-    const result = await apirequest('http://localhost:3500/students', postOptions);
+    const result = await apirequest(apiurl, postOptions);
     setStudents((prevStudents) => [...prevStudents, newStudent]);
 
     if (result) {
@@ -81,8 +82,11 @@ const App = () => {
         setID={setID}
         setDept={setDept}
         handleclick={handleClickAdd}
+        setStudents={setStudents}
+        apiurl = {apiurl}
       />
       </main>
+    
       <Footer />
     </div>
   );
