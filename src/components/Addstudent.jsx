@@ -1,5 +1,4 @@
 import React, { useRef } from 'react'
-import Viewstudent from './Viewstudent'
 import DeleteallRecords from './DeleteallRecords'
 import apirequest from '../apirequest'
 
@@ -64,10 +63,8 @@ const Addstudent = ({stdept,stid,stname,students,setDept,setID,setname,handlecli
       <DeleteallRecords
        updateToDb={updateToDb}
       />
-       {students.length===0 ? <p style={{marginLeft:"10px",marginTop:"15px"}}><b>NO RECORD TO SHOW</b></p>:null}
-      <Viewstudent
-       students={students}
-      />
+      
+      
      </div>
     </>
   )

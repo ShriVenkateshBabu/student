@@ -7,6 +7,7 @@ import apirequest from './apirequest';
 import './index.css';
 import Searchdisplayitems from './components/Searchdisplayitems';
 import Editstu from './components/Editstu';
+import Viewstudent from './components/Viewstudent';
 
 
 const App = () => {
@@ -92,17 +93,8 @@ const App = () => {
       {error && <p>{error}</p>}
       {loading && <p>Loading...</p>}
       <main>
+      
       <Search setsearch={setSearch} />
-       <Editstu
-       setEditsearch ={setEditsearch}
-       handle_editbtn_click={handle_editbtn_click}
-       editid ={editid}
-       editdept={editdept}
-       editname={editname}
-       seteditdept={seteditdept}
-       seteditid={seteditid}
-       seteditname={seteditname}
-       />
       <Addstudent
         students={students}
         stid={stid}
@@ -116,9 +108,25 @@ const App = () => {
         apiurl = {apiurl}
         input_ref={input_ref}
       />
+
       </main>
+      <Editstu
+       setEditsearch ={setEditsearch}
+       handle_editbtn_click={handle_editbtn_click}
+       editid ={editid}
+       editdept={editdept}
+       editname={editname}
+       seteditdept={seteditdept}
+       seteditid={seteditid}
+       seteditname={seteditname}
+       />
+      <Viewstudent
+       students={students}
+      />
+      <p style={{marginLeft:"0.2cm"}}>{students.length===0 ? <p style={{marginLeft:"10px",marginTop:"15px"}}><b>NO RECORD TO SHOW</b></p>:null}</p>
+       
       {/* <Editstu/> */} 
-     
+   <br></br>
    {search && (
    <Searchdisplayitems search={search} students={students} />
    )}

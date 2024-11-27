@@ -3,12 +3,7 @@
     {
       "id": "1",
       "name": "venky",
-      "dept": "cse"
-    },
-    {
-      "id": "2",
-      "name": "vnky",
-      "dept": "cse"
+      "dept": "CSE"
     }
   ]
 }
