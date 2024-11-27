@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Addstudent from './components/Addstudent';
 import Search from './components/Search';
 import Header from './Header&Footer/Header';
@@ -6,6 +6,7 @@ import Footer from './Header&Footer/Footer';
 import apirequest from './apirequest';
 import './index.css';
 import Searchdisplayitems from './components/Searchdisplayitems';
+import Editstu from './components/Editstu';
 
 
 const App = () => {
@@ -17,6 +18,8 @@ const App = () => {
   let [error, setError] = useState('');
   let [loading, setloading] = useState(false);
   let apiurl = 'http://localhost:3500/students';
+ 
+ const input_ref = useRef()
   useEffect(() => {
     async function fetchData() {
       try {
@@ -60,6 +63,7 @@ const App = () => {
     setName('');
     setID('');
     setDept('');
+    input_ref.current.focus()
   };
 
   return (
@@ -69,10 +73,7 @@ const App = () => {
       {loading && <p>Loading...</p>}
       <main>
       <Search setsearch={setSearch} />
-      <Searchdisplayitems
-      search ={search}
-      students={students}
-      />
+      
       <Addstudent
         students={students}
         stid={stid}
@@ -84,9 +85,16 @@ const App = () => {
         handleclick={handleClickAdd}
         setStudents={setStudents}
         apiurl = {apiurl}
+        input_ref={input_ref}
       />
       </main>
-    
+      {/* <Editstu/> */}
+      <br></br>
+      <p><b>SEARCH RESULTS:
+       </b></p>
+   {search && (
+   <Searchdisplayitems search={search} students={students} />
+   )}
       <Footer />
     </div>
   );

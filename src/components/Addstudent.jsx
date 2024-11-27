@@ -1,16 +1,17 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import Viewstudent from './Viewstudent'
 import DeleteallRecords from './DeleteallRecords'
 
 const Addstudent = ({stdept,stid,stname,students,setDept,setID,setname,handleclick,search,setStudents
-  ,apiurl
+  ,apiurl,input_ref
 }) => {
-    
+     
     return (
     <>
      <div className='addstudent'>
      <label><b>ADD A NEW STUDENT</b></label>
      <input
+        ref={input_ref}
         type="number"
         placeholder="Enter Student ID"
         value={stid}
