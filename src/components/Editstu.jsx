@@ -3,7 +3,12 @@ import React from 'react'
 const Editstu = () => {
   return (
     <div className='editstu'>
-     <label><b>EDIT</b></label> 
+     <input type='text'
+     placeholder='Enter the id you want'
+     />
+     <button><b>EDIT</b></button>
+     <br></br>
+     <label><b>EDIT THE DETAILS</b></label> 
      <input type='text'
      placeholder='Edit your Id'
      />
@@ -13,7 +18,7 @@ const Editstu = () => {
      <input type="text"
      placeholder="Edit yout dept"
      />
-     <button>ADD TO STUDENTS</button>
+     <button><b>ADD TO EXISTING STUDENTS</b></button>
     </div>
   )
 }

@@ -20,11 +20,12 @@ const App = () => {
   let apiurl = 'http://localhost:3500/students';
  
  const input_ref = useRef()
+ 
   useEffect(() => {
     async function fetchData() {
       try {
         setloading(true);
-        let response = await fetch(apiurl);
+        let response = await fetch(apiurl || []);
         if (!response.ok) {
           throw Error('API call not fetched');
         }
@@ -37,10 +38,12 @@ const App = () => {
         setloading(false);
       }
     }
-    fetchData();
+    setTimeout(()=>{
+      fetchData();
+    },2000)
   }, []);
 
-  const handleClickAdd = async () => {
+  const handleClick = async () => {
     const newStudent = {
       name: stname,
       id: stid,
@@ -73,7 +76,7 @@ const App = () => {
       {loading && <p>Loading...</p>}
       <main>
       <Search setsearch={setSearch} />
-      
+       <Editstu/>
       <Addstudent
         students={students}
         stid={stid}
@@ -82,16 +85,14 @@ const App = () => {
         setname={setName}
         setID={setID}
         setDept={setDept}
-        handleclick={handleClickAdd}
+        handleclick={handleClick}
         setStudents={setStudents}
         apiurl = {apiurl}
         input_ref={input_ref}
       />
       </main>
-      {/* <Editstu/> */}
-      <br></br>
-      <p><b>SEARCH RESULTS:
-       </b></p>
+      {/* <Editstu/> */} 
+     
    {search && (
    <Searchdisplayitems search={search} students={students} />
    )}

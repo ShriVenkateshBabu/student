@@ -8,6 +8,7 @@ header{
     margin-bottom: 10px;
     place-content: center;
     text-align: center;
+    width: 97.6%;
 }
 footer{
     text-align: center;
@@ -15,7 +16,7 @@ footer{
     margin-top: 2cm;
     padding: 15px;
     background-color: darkgray;
-    width: 100%;
+    width: 97.6%;
 }
 .allstudents{
     text-align: right;
@@ -33,10 +34,11 @@ footer{
         width: 100%;
         table-layout: fixed; 
         border-collapse: collapse;
+        margin-left: 2px;
 }
 .allstudents th{
    border-collapse: collapse;
-  width: 10.69cm; /* Divide the width equally among columns */
+  width: 10.5cm; /* Divide the width equally among columns */
   padding: 10px;
   border: 2px solid #0c0c0c;
   text-align: left;
@@ -54,6 +56,10 @@ footer{
 input{
     display: flex;
 }
+.addstudent{
+    position: relative;
+    bottom: 4.5cm;
+}
 .addstudent input{
 padding:5px;
 width: 4.9cm;
@@ -69,7 +75,7 @@ margin-bottom: 4px;
 }
 .SearchedValues th{
     border-collapse: collapse;
-   width: 10.69cm; /* Divide the width equally among columns */
+   width: 9cm; /* Divide the width equally among columns */
    padding: 10px;
    border: 2px solid #0c0c0c;
    text-align: left;
@@ -80,7 +86,32 @@ margin-bottom: 4px;
      border: 2px solid #0b0a0a;
      text-align: left;
  }
+ .SearchedValues {
+   position: relative;
+   bottom: 3cm;
+ }
  .deleteAllRecords{
     width: 5.3cm;
     margin: 5px 0px 0px 0px; 
+ }
+ .editstu input{ 
+padding:5px;
+width: 4.9cm;
+margin-bottom: 4px;
+margin: 2px;
+
+ }
+ .editstu button{
+    width: 5.3cm;
+    margin-bottom: cm;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 2px;
+ }
+ .editstu{
+    border: 1px  solid black;
+    margin-left: 7cm;
+    margin-right :1cm;
+    position: relative;
+    bottom: 1cm;
  }

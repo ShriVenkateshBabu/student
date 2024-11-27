@@ -48,6 +48,7 @@ const Addstudent = ({stdept,stid,stname,students,setDept,setID,setname,handlecli
         type="text"
         placeholder="Enter the student name"
         value={stname}
+        
         required
         onChange={(e) => setname(e.target.value)}
       />
@@ -65,8 +66,7 @@ const Addstudent = ({stdept,stid,stname,students,setDept,setID,setname,handlecli
       />
        {students.length===0 ? <p style={{marginLeft:"10px",marginTop:"15px"}}><b>NO RECORD TO SHOW</b></p>:null}
       <Viewstudent
-      students={students}
-      search ={search}
+       students={students}
       />
      </div>
     </>

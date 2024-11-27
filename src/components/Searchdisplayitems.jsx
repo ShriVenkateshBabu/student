@@ -3,8 +3,10 @@ import React from 'react'
 const Searchdisplayitems = ({search,students}) => {
   return (
     <div className='SearchedValues'>
-
+       <p><b>SEARCH RESULTS:
+       </b></p>
     {search && (
+       
         <table>
           <thead>
             <tr>
