@@ -65,7 +65,7 @@ const App = () => {
     setDept('');
     input_ref.current.focus()
   };
-
+  
   return (
     <div className='app-container'>
       <Header />

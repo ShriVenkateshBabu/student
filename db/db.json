@@ -2,18 +2,8 @@
   "students": [
     {
       "id": "1",
-      "name": "venkycs",
+      "name": "venky",
       "dept": "cse"
-    },
-    {
-      "id": "2",
-      "name": "Hari",
-      "dept": "BME"
-    },
-    {
-      "id": "3",
-      "name": "VENKY",
-      "dept": "CSE"
     }
   ]
 }

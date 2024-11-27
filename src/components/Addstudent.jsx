@@ -1,11 +1,37 @@
 import React, { useRef } from 'react'
 import Viewstudent from './Viewstudent'
 import DeleteallRecords from './DeleteallRecords'
+import apirequest from '../apirequest'
 
 const Addstudent = ({stdept,stid,stname,students,setDept,setID,setname,handleclick,search,setStudents
   ,apiurl,input_ref
 }) => {
-     
+  
+  const updateToDb = async () => {
+    try {
+       let response = await fetch(apiurl);
+
+       if(!response.ok){
+        throw Error("failed to Fetch")
+       }
+       const data = await response.json()
+      for(let student of students){
+         const deleteoption ={
+          method:'DELETE'
+         }
+         const requrl = await apirequest(`${apiurl}/${student.id}`,deleteoption);
+         if(!requrl){
+          console.log("ALL RECORDS ARE DELETED")
+         }
+         setStudents([])
+      }
+       }
+  catch(err)
+  {
+    console.log(err.message)
+  }
+}
+  
     return (
     <>
      <div className='addstudent'>
@@ -35,20 +61,16 @@ const Addstudent = ({stdept,stid,stname,students,setDept,setID,setname,handlecli
       />
       <button onClick={handleclick}><b>ADD TO STUDENT LIST</b></button>
       <DeleteallRecords
-      setstudents={setStudents}
-      students={students}
-      apiurl = {apiurl}
-
+       updateToDb={updateToDb}
       />
+       {students.length===0 ? <p style={{marginLeft:"10px",marginTop:"15px"}}><b>NO RECORD TO SHOW</b></p>:null}
       <Viewstudent
       students={students}
       search ={search}
       />
      </div>
-     
-      
     </>
   )
 }
 
-export default Addstudent
+export default Addstudent ;
