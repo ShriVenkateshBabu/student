@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Addstudent from './components/Addstudent';
 import Search from './components/Search';
 import Header from './Header&Footer/Header';
@@ -17,6 +17,11 @@ const App = () => {
   const [search, setSearch] = useState('');
   let [error, setError] = useState('');
   let [loading, setloading] = useState(false);
+  let[editSearch,setEditsearch] = useState("")
+  let[editid,seteditid] = useState("")
+  let[editname,seteditname] = useState("")
+  let[editdept,seteditdept] = useState("")
+
   let apiurl = 'http://localhost:3500/students';
  
  const input_ref = useRef()
@@ -68,7 +73,19 @@ const App = () => {
     setDept('');
     input_ref.current.focus()
   };
-  
+  function handle_editbtn_click(){
+   console.log(editSearch)
+   let edit_itm = students.filter((student)=>student.id===editSearch)
+   if(edit_itm.length>0){
+    
+    seteditid(edit_itm[0].id)
+    seteditdept(edit_itm[0].dept)
+    seteditname(edit_itm[0].name) 
+   }
+   else{
+    return null
+   }
+  }
   return (
     <div className='app-container'>
       <Header />
@@ -76,7 +93,16 @@ const App = () => {
       {loading && <p>Loading...</p>}
       <main>
       <Search setsearch={setSearch} />
-       <Editstu/>
+       <Editstu
+       setEditsearch ={setEditsearch}
+       handle_editbtn_click={handle_editbtn_click}
+       editid ={editid}
+       editdept={editdept}
+       editname={editname}
+       seteditdept={seteditdept}
+       seteditid={seteditid}
+       seteditname={seteditname}
+       />
       <Addstudent
         students={students}
         stid={stid}
