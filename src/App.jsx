@@ -36,6 +36,7 @@ const App = () => {
           throw Error('API call not fetched');
         }
         let data = await response.json();
+        
         setStudents(data);
         setError('');
       } catch (err) {
@@ -55,20 +56,21 @@ const App = () => {
       id: stid,
       dept: stdept,
     };
+   try{const postOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(newStudent),
+  };
 
-    const postOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(newStudent),
-    };
-
-    const result = await apirequest(apiurl, postOptions);
-    setStudents((prevStudents) => [...prevStudents, newStudent]);
-
-    if (result) {
-      setError(result);
-    }
-
+  const result = await apirequest(apiurl, postOptions);
+  setStudents((prevStudents) => [...prevStudents, newStudent]);
+  if (result) {
+    setError(result);
+  }
+}
+catch(err){
+ setError(err.message)
+}
     setName('');
     setID('');
     setDept('');
@@ -86,6 +88,36 @@ const App = () => {
    else{
     return null
    }
+  }
+  const editStudentbtn = async () => {
+   const updateitm = {
+    id : editid,
+    name: editname,
+    dept:editdept
+   }
+   const updateval = students.map((student)=>{if(student.id===editid){
+    return updateitm
+   }
+  else{
+    return student
+  }
+  })
+  setStudents(updateval);
+  setError("")
+  try{const updateoptions = {
+    method:"PUT",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify(updateitm)
+  };
+  let requrl = `${apiurl}/${editid}`
+  let response = await apirequest(requrl)
+  if(response){
+    setError(response)
+  }
+ }
+  catch(err){
+    setError(err.message)
+  }
   }
   return (
     <div className='app-container'>
@@ -119,11 +151,14 @@ const App = () => {
        seteditdept={seteditdept}
        seteditid={seteditid}
        seteditname={seteditname}
+       editStudentbtn={editStudentbtn}
        />
       <Viewstudent
        students={students}
       />
-      <p style={{marginLeft:"0.2cm"}}>{students.length===0 ? <p style={{marginLeft:"10px",marginTop:"15px"}}><b>NO RECORD TO SHOW</b></p>:null}</p>
+      <>{students.length===0 ? <p style={{marginLeft:"15px",marginTop:"15px"}}>
+        <b>NO RECORD TO SHOW</b></p>:null}</>
+      
        
       {/* <Editstu/> */} 
    <br></br>

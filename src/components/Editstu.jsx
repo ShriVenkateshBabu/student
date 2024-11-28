@@ -8,7 +8,8 @@ const Editstu = ({
   editdept,
   seteditid,
   seteditdept,
-  seteditname
+  seteditname,
+  editStudentbtn
 }) => {
   return (
     <div className='editstu'>
@@ -46,7 +47,7 @@ const Editstu = ({
         value={editdept} // bind to state
         onChange={(e) => seteditdept(e.target.value)} // update state on change
       />
-      <button>
+      <button onClick={()=>editStudentbtn()}>
         <b>ADD TO EXISTING STUDENTS</b>
       </button>
     </div>
