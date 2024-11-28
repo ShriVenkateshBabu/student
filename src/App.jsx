@@ -110,7 +110,7 @@ catch(err){
     body:JSON.stringify(updateitm)
   };
   let requrl = `${apiurl}/${editid}`
-  let response = await apirequest(requrl)
+  let response = await apirequest(requrl,updateoptions)
   if(response){
     setError(response)
   }
