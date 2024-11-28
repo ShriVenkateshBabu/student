@@ -152,6 +152,9 @@ catch(err){
        seteditid={seteditid}
        seteditname={seteditname}
        editStudentbtn={editStudentbtn}
+       students={students}
+       setStudents={setStudents}
+       apiurl ={apiurl}
        />
       <Viewstudent
        students={students}

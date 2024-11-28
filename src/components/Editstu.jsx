@@ -1,4 +1,5 @@
 import React from 'react';
+import DeleteoneRecord from './DeleteoneRecord';
 
 const Editstu = ({
   setEditsearch,
@@ -9,7 +10,8 @@ const Editstu = ({
   seteditid,
   seteditdept,
   seteditname,
-  editStudentbtn
+  editStudentbtn,students,
+  setStudents,apiurl
 }) => {
   return (
     <div className='editstu'>
@@ -50,6 +52,11 @@ const Editstu = ({
       <button onClick={()=>editStudentbtn()}>
         <b>ADD TO EXISTING STUDENTS</b>
       </button>
+      <DeleteoneRecord
+       students={students}
+       setStudents ={setStudents}
+       apiurl={apiurl}
+      />
     </div>
   );
 };
