@@ -8,6 +8,8 @@ import './index.css';
 import Searchdisplayitems from './components/Searchdisplayitems';
 import Editstu from './components/Editstu';
 import Viewstudent from './components/Viewstudent';
+import { Routes,Route } from 'react-router-dom';
+import Login from './Loginpage/Login';
 
 
 const App = () => {
@@ -121,54 +123,64 @@ catch(err){
   }
   return (
     <div className='app-container'>
+      
+   <Routes>
+     <Route path="/" element={<Login/>} />
+     <Route path="/students" element ={
+      <>
       <Header />
-      {error && <p>{error}</p>}
-      {loading && <p>Loading...</p>}
-      <main>
-      
-      <Search setsearch={setSearch} />
-      <Addstudent
-        students={students}
-        stid={stid}
-        stdept={stdept}
-        stname={stname}
-        setname={setName}
-        setID={setID}
-        setDept={setDept}
-        handleclick={handleClick}
-        setStudents={setStudents}
-        apiurl = {apiurl}
-        input_ref={input_ref}
-      />
-
-      </main>
-      <Editstu
-       setEditsearch ={setEditsearch}
-       handle_editbtn_click={handle_editbtn_click}
-       editid ={editid}
-       editdept={editdept}
-       editname={editname}
-       seteditdept={seteditdept}
-       seteditid={seteditid}
-       seteditname={seteditname}
-       editStudentbtn={editStudentbtn}
-       students={students}
-       setStudents={setStudents}
-       apiurl ={apiurl}
-       />
-      <Viewstudent
-       students={students}
-      />
-      <>{students.length===0 ? <p style={{marginLeft:"15px",marginTop:"15px"}}>
-        <b>NO RECORD TO SHOW</b></p>:null}</>
-      
+       {error && <p>{error}</p>}
+       {loading && <p>Loading...</p>}
+       <main>
        
-      {/* <Editstu/> */} 
-   <br></br>
-   {search && (
-   <Searchdisplayitems search={search} students={students} />
-   )}
-      <Footer />
+       <Search setsearch={setSearch} />
+       <Addstudent
+         students={students}
+         stid={stid}
+         stdept={stdept}
+         stname={stname}
+         setname={setName}
+         setID={setID}
+         setDept={setDept}
+         handleclick={handleClick}
+         setStudents={setStudents}
+         apiurl = {apiurl}
+         input_ref={input_ref}
+       />
+ 
+       </main>
+       <Editstu
+        setEditsearch ={setEditsearch}
+        handle_editbtn_click={handle_editbtn_click}
+        editid ={editid}
+        editdept={editdept}
+        editname={editname}
+        seteditdept={seteditdept}
+        seteditid={seteditid}
+        seteditname={seteditname}
+        editStudentbtn={editStudentbtn}
+        students={students}
+        setStudents={setStudents}
+        apiurl ={apiurl}
+        />
+       <Viewstudent
+        students={students}
+       />
+       <>{students.length===0 ? <p style={{marginLeft:"15px",marginTop:"15px"}}>
+         <b>NO RECORD TO SHOW</b></p>:null}</>
+       
+        
+       {/* <Editstu/> */} 
+    <br></br>
+    {search && (
+    <Searchdisplayitems search={search} students={students} />
+    )}
+       <Footer />
+       </>
+     }/>
+     
+      </Routes>
+     
     </div>
   );
 };
