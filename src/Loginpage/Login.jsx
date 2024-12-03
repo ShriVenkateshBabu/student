@@ -1,25 +1,31 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import "../login.css"
 
 const Login = () => {
   let [isauth, setisauth] = useState(false)
   const navigate = useNavigate();
-  function handlelogin (){
-   setisauth(true);
-   if(isauth){
-    navigate("/students")
-   }
-   else{
-    return null
-   }
+  useEffect(()=>{
+    
+      if(isauth){
+       navigate("/students")
+      }
+      else{
+       console.log("0")
+      }
+     
+  },[isauth])
+  function handlelogin (e)
+  {
+       e.preventDefault()
+      setisauth(true);
   }
   return (
     <>
-<form  className = "loginform" onSubmit={(e) => e.preventDefault()}>
+<form  className = "loginform" >
   <input type="text" placeholder="Enter the id" />
   <input type="password" placeholder="Enter the password" />
-  <button type="button" onClick={()=>handlelogin()}>LOGIN</button>
+  <button type="submit" onClick={handlelogin}>LOGIN</button>
 </form>
 
     </>
